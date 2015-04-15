@@ -101,4 +101,4 @@ test:
         retry_interval: 0
 
 production:
-  uri: <%= ENG['MONGOHQ_URL'] %>
+  uri: <%= ENV['MONGOHQ_URL'] %>
