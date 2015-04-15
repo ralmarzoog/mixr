@@ -31,7 +31,6 @@ class RecipesController < ApplicationController
     steps_params = params[:recipe][:steps_attributes]
 
     respond_to do |format|
-      debugger
       if @recipe.save
         recipe_ingredient_params.each do |recipe_ingr|
           next unless recipe_ingr[1][:quantity] or recipe_ingr[1][:ingredient]
