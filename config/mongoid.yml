@@ -102,7 +102,7 @@ test:
 
 production:
   sessions:
-    defualt:
+    default:
       uri: <%= ENV['MONGOHQ_URL'] %>
       options:
         consistency: :strong
