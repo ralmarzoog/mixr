@@ -101,4 +101,13 @@ test:
         retry_interval: 0
 
 production:
-  uri: <%= ENV['MONGOHQ_URL'] %>
+  sessions:
+    defualt:
+      uri: <%= ENV['MONGOHQ_URL'] %>
+      options:
+        consistency: :strong
+        max_retries: 30
+        retry_interval: 1
+        timeout: 15
+        safe: true
+        refresh_interval: 10
