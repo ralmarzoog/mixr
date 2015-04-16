@@ -1,6 +1,7 @@
 class Recipe 
   include Mongoid::Document
   field :title, type: String
+
   has_many :recipe_ingredients, dependent: :delete
   has_many :steps, dependent: :delete
 

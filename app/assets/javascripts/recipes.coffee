@@ -32,4 +32,14 @@ jQuery ->
     $(".steps").append(to_add)
     step_count++
 
+  $(".mod-toggle").click (event) ->
+    if $(event.target).hasClass("fa-comment")
+      $(event.target).removeClass("fa-comment").addClass("fa-comment-o") 
+      $(event.target).parent().find(".suggestions").show("fast");
+    else
+      $(event.target).removeClass("fa-comment-o").addClass("fa-comment") 
+      $(event.target).parent().find(".suggestions").hide("fast");
+
+
+
  
