@@ -7,26 +7,27 @@
 </p>
 
 <ul>
-<%= @recipe.recipe_ingredients.each do |r_ingr| %>
-  <li>
-    <%= r_ingr.quantity %>
-    <%= r_ingr.ingredient.name %>
-    <% if r_ingr.modifications.count > 0 %>
-      <span class= "mods">
-        <i class="fa fa-comment mod-toggle"></i>
-        <span class="suggestions">
-          <ul>
-            <% r_ingr.modifications.each do |mod| %>
-              <li>
-                <%= mod.suggestion %>
-              </li>
-            <% end %>
-          </ul>
+  <%= @recipe.recipe_ingredients.each do |r_ingr| %>
+    <li>
+      <%= r_ingr.quantity %>
+      <%= r_ingr.ingredient.name %>
+      <% if r_ingr.modifications.count > 0 %>
+        <span class= "mods">
+          <i class="fa fa-comment mod-toggle"></i>
+          <span class="suggestions">
+            <ul>
+              <% r_ingr.modifications.each do |mod| %>
+                <li>
+                  <%= mod.suggestion %>
+                </li>
+              <% end %>
+            </ul>
+          </span>
         </span>
-      </span>
-    <% end %>
-  </li>  
-<% end %>
+      <% end %>
+    </li>  
+  <% end %>
+</ul>
 
 <ol>
   <%= @recipe.steps.each do |step| %>
