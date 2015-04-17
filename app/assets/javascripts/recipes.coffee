@@ -40,6 +40,18 @@ jQuery ->
       $(event.target).removeClass("fa-comment-o").addClass("fa-comment") 
       $(event.target).parent().find(".suggestions").hide("fast");
 
+  $(".submit-mod").click (event) ->
+    suggestion = $(event.target).parent().find(".new-mod").val()
+    original_id = $(event.target).parent().find(".new-mod").attr('id')
+    $.ajax
+      type: "POST"
+      data: { suggestion: suggestion, original_id: original_id }
+      url: "/modifications/"
+      success: (data) ->
+        location.reload()
+      error: (xhr, status, errorThrown) ->
+        alert "Error " + errorThrown
+
 
 
  

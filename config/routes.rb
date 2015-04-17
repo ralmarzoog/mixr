@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :recipes
+  resources :modifications
 
   get 'welcome/index'
   root 'welcome#index'

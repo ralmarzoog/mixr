@@ -11,20 +11,26 @@
     <li>
       <%= r_ingr.quantity %>
       <%= r_ingr.ingredient.name %>
-      <% if r_ingr.modifications.count > 0 %>
-        <span class= "mods">
-          <i class="fa fa-comment mod-toggle"></i>
-          <span class="suggestions">
-            <ul>
-              <% r_ingr.modifications.each do |mod| %>
-                <li>
-                  <%= mod.suggestion %>
-                </li>
-              <% end %>
-            </ul>
-          </span>
+      <span class= "mods">
+        <i class="fa fa-comment mod-toggle"></i>
+        <span class="suggestions">
+          <ul>
+            <% r_ingr.modifications.each do |mod| %>
+              <li>
+                <%= mod.suggestion %>
+              </li>
+            <% end %>
+            <li>
+              <span class="new-mod-form">
+                <%= form_tag modifications_path do %>
+                  <%= text_area_tag 'new_mod', nil, placeholder: "Submit a new modification.", class: "new-mod", id: r_ingr.id %>
+                  <%= submit_tag 'Submit', class: "submit-mod btn btn-primary"%>
+                <% end %>
+              </span>
+            </li>
+          </ul>
         </span>
-      <% end %>
+      </span>
     </li>  
   <% end %>
 </ul>
@@ -33,20 +39,26 @@
   <%= @recipe.steps.each do |step| %>
     <li>
       <%= step.instruction %>
-      <% if step.modifications.count > 0 %>
-        <span class="mods">
-          <i class="fa fa-comment mod-toggle"></i>
-          <span class="suggestions">
-            <ul>
-              <% step.modifications.each do |mod| %>
-                <li>
-                  <%= mod.suggestion %>
-                </li>
-              <% end %>
-            </ul>
-          </span>
+      <span class="mods">
+        <i class="fa fa-comment mod-toggle"></i>
+        <span class="suggestions">
+          <ul>
+            <% step.modifications.each do |mod| %>
+              <li>
+                <%= mod.suggestion %>
+              </li>
+            <% end %>
+            <li>
+              <span class="new-mod-form">
+                <%= form_tag modifications_path do %>
+                  <%= text_area_tag 'new_mod', nil, placeholder: "Submit a new modification.", class: "new-mod", id: step.id %>
+                  <%= submit_tag 'Submit', class: "submit-mod btn btn-primary"%>
+                <% end %>
+            </span>
+            </li>
+          </ul>
         </span>
-      <% end %>
+      </span>
     </li>
   <% end %>
 </ol>
