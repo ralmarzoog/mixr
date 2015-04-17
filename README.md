@@ -1,5 +1,7 @@
 ## README
 
+- Icons: http://fortawesome.github.io/Font-Awesome/
+
 Notes on the code:
 - 4/6
   - I set up MongoDB using Mongoid (http://mongoid.org/en/mongoid/). A little worried that it might not work for other people's, so let me know if it doesn't work for you. To test it out, first run bundle update to install the gem. Then run the command "mongod" in one terminal tab/window. Run "rails console" or "rails c" in another. In the rails console, type Recipe.count. If it returns a number (the number of Recipes in the database), it works, if not, there's something wrong.
