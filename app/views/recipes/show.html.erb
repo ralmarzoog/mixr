@@ -10,7 +10,7 @@
   <%= @recipe.recipe_ingredients.each do |r_ingr| %>
     <li>
       <%= r_ingr.quantity %>
-      <%= r_ingr.ingredient.name %>
+      <%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
       <span class= "mods">
         <i class="fa fa-comment mod-toggle"></i>
         <span class="suggestions">
