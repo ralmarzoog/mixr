@@ -11,21 +11,7 @@
     <li>
       <%= r_ingr.quantity %>
       <%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
-      <span class= "mods">
-        <i class="fa fa-comment mod-toggle"></i>
-        <span class="suggestions">
-          <ul>
-            <% r_ingr.modifications.each do |mod| %>
-              <li>
-                <%= mod.suggestion %>
-              </li>
-            <% end %>
-            <li>
-              <%= render partial: "new_mod_form", locals: { orig_id: r_ingr.id } %>
-            </li>
-          </ul>
-        </span>
-      </span>
+      <%= render partial: "modifications", locals: { modifications: r_ingr.modifications, orig_id: r_ingr.id } %>
     </li>  
   <% end %>
 </ul>
@@ -34,21 +20,7 @@
   <%= @recipe.steps.each do |step| %>
     <li>
       <%= step.instruction %>
-      <span class="mods">
-        <i class="fa fa-comment mod-toggle"></i>
-        <span class="suggestions">
-          <ul>
-            <% step.modifications.each do |mod| %>
-              <li>
-                <%= mod.suggestion %>
-              </li>
-            <% end %>
-            <li>
-              <%= render partial: "new_mod_form", locals: { orig_id: step.id } %>
-            </li>
-          </ul>
-        </span>
-      </span>
+      <%= render partial: "modifications", locals: { modifications: step.modifications, orig_id: step.id } %>
     </li>
   <% end %>
 </ol>
