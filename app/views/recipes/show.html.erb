@@ -21,12 +21,7 @@
               </li>
             <% end %>
             <li>
-              <span class="new-mod-form">
-                <%= form_tag modifications_path do %>
-                  <%= text_area_tag 'new_mod', nil, placeholder: "Submit a new modification.", class: "new-mod", id: r_ingr.id %>
-                  <%= submit_tag 'Submit', class: "submit-mod btn btn-primary"%>
-                <% end %>
-              </span>
+              <%= render partial: "new_mod_form", locals: { orig_id: r_ingr.id } %>
             </li>
           </ul>
         </span>
@@ -49,12 +44,7 @@
               </li>
             <% end %>
             <li>
-              <span class="new-mod-form">
-                <%= form_tag modifications_path do %>
-                  <%= text_area_tag 'new_mod', nil, placeholder: "Submit a new modification.", class: "new-mod", id: step.id %>
-                  <%= submit_tag 'Submit', class: "submit-mod btn btn-primary"%>
-                <% end %>
-            </span>
+              <%= render partial: "new_mod_form", locals: { orig_id: step.id } %>
             </li>
           </ul>
         </span>

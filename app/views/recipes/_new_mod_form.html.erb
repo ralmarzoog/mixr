@@ -1,0 +1,6 @@
+<span class="new-mod-form">
+  <%= form_tag modifications_path do %>
+    <%= text_area_tag 'new_mod', nil, placeholder: "Submit a new modification.", class: "new-mod", id: orig_id %>
+    <%= submit_tag 'Submit', class: "submit-mod btn btn-primary"%>
+  <% end %>
+</span>
