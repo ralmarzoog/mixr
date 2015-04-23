@@ -1,6 +1,4 @@
 class ModificationsController < ApplicationController
-  #before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-
   # GET /modifications/new
   def new
     @modification = Modification.new
@@ -24,15 +22,10 @@ class ModificationsController < ApplicationController
     redirect_to :back
   end
 
+
   private
-    # Use callbacks to share common setup or constraints between actions.
-=begin
-    def set_modification
-      @modification = Modification.find(params[:id])
-    end
-=end
     # Never trust params from the internet, only allow the white list through.
     def modification_params 
-      params.require(:modification).permit(:suggestion)
+      params.require(:modification).permit(:suggestion, :value)
     end
 end

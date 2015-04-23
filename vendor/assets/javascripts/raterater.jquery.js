@@ -160,7 +160,6 @@
 
         /* Call the user-defined callback function if it exists
          */
-        console.log($this);
         if( typeof window[opts.submitFunction] === 'function' );
         window[opts.submitFunction]( id, stars );
     }
@@ -300,7 +299,21 @@
 var rateAlert;
 
 rateAlert = function(id, rating) {
-    console.log('Rating for ' + id + ' is ' + rating + ' stars!');
+    $.ajax({
+        type: "POST",
+        data: {
+            value: rating,
+            modification_id: id
+        },
+        url: "/votes/",
+        success: function(data) {
+            $(document).find("#" + id).attr("data-rating", rating);
+            return console.log("Success" + rating);
+        },
+        error: function(xhr, status, errorThrown) {
+            return alert("Error: " + errorThrown);
+        }
+    });
 };
 
 $(function() {
