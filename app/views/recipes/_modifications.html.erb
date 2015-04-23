@@ -4,18 +4,7 @@
     <ul>
       <% modifications.each do |mod| %>
         <li>
-          <% num_full = mod.rating.to_i %>
-          <% diff = mod.rating - num_full %>
-          <% half_full = diff < 0.5 ? 0 : 1 %>
-          <% num_full.times do %>
-            <i class="fa fa-star"></i>
-          <% end %>
-          <% half_full.times do %>
-            <i class="fa fa-star-half-full"></i>
-          <% end %>
-          <% (5 - num_full - half_full).times do %>
-            <i class="fa fa-star-o"></i>
-          <% end %>
+          <div class="ratebox" data-id="1" data-rating="2.2"></div>
           <%= mod.suggestion %>
         </li>
       <% end %>

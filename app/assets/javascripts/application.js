@@ -15,5 +15,6 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require_directory ../../../vendor/assets/javascripts/
 //= require_tree .
 

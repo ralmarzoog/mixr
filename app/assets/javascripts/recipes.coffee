@@ -53,5 +53,4 @@ jQuery ->
         alert "Error " + errorThrown
 
 
-
  
