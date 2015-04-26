@@ -7,7 +7,7 @@
 </p>
 
 <ul>
-  <%= @recipe.recipe_ingredients.each do |r_ingr| %>
+  <% @recipe.recipe_ingredients.each do |r_ingr| %>
     <li>
       <%= r_ingr.quantity %>
       <%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
@@ -17,7 +17,7 @@
 </ul>
 
 <ol>
-  <%= @recipe.steps.each do |step| %>
+  <% @recipe.steps.each do |step| %>
     <li>
       <%= step.instruction %>
       <%= render partial: "modifications", locals: { modifications: step.modifications, orig_id: step.id } %>
