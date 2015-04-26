@@ -26,7 +26,6 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    debugger
     @recipe = Recipe.new(title: params[:recipe][:title], image: params[:recipe][:image])
     recipe_ingredient_params = params[:recipe][:recipe_ingredients_attributes]
     steps_params = params[:recipe][:steps_attributes]
