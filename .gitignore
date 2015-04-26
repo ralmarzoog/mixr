@@ -16,3 +16,9 @@
 !/log/.keep
 /tmp
 .env
+
+.idea/
+.idea/*
+*idea
+idea*
+.idea*
