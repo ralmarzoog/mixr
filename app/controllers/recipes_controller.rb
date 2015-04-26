@@ -26,7 +26,8 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(title: params[:recipe][:title])
+    debugger
+    @recipe = Recipe.new(title: params[:recipe][:title], image: params[:recipe][:image])
     recipe_ingredient_params = params[:recipe][:recipe_ingredients_attributes]
     steps_params = params[:recipe][:steps_attributes]
 
@@ -89,6 +90,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:title)
+      params.require(:recipe).permit(:title, :image)
     end
 end

@@ -6,6 +6,8 @@
   <%= @recipe.title %>
 </p>
 
+<%= image_tag @recipe.image.url if @recipe.image? %>
+
 <ul>
   <% @recipe.recipe_ingredients.each do |r_ingr| %>
     <li>
