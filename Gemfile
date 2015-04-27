@@ -26,6 +26,7 @@ gem 'bootstrap-sass', '3.2.0.0'
 gem 'configatron'
 gem "mongoid", "~> 4.0.0"
 gem 'mongoid-paperclip', require: 'mongoid_paperclip'
+gem 'aws-sdk'
 
 
 # Use ActiveModel has_secure_password
