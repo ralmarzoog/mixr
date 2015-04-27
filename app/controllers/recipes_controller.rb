@@ -10,28 +10,13 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
-    to_add = { id: @recipe.id, time: Time.now }
-    if cookies[:recipes_viewed] == nil
-      parsed_cookies = nil
-    else
-      parsed_cookies = JSON.parse(cookies[:recipes_viewed])
-    end
+    set_cookies
 
-    if parsed_cookies == nil or parsed_cookies.empty?
-      parsed_cookies = [to_add]
-      cookies[:recipes_viewed] = JSON.generate(parsed_cookies)
-    elsif !parsed_cookies.select{ |e| e["id"] == JSON.parse(JSON.generate(to_add[:id])) }.empty?
-      return
-    elsif parsed_cookies.length < 5
-      parsed_cookies << to_add
-      cookies[:recipes_viewed] = JSON.generate(parsed_cookies)
-    else
-      parsed_cookies = parsed_cookies.sort do |x,y| 
-        x[:time] <=> y[:time]
-      end
-
-      parsed_cookies[parsed_cookies.length - 1] = to_add
-      cookies[:recipes_viewed] = JSON.generate(parsed_cookies)
+    parsed_cookies = JSON.parse(cookies[:recipes_viewed])
+    @recently_viewed = []
+    parsed_cookies.each do |r_cookie|
+      r = Recipe.where(id: r_cookie["id"]["$oid"]).first
+      @recently_viewed << r
     end
   end
 
@@ -113,5 +98,31 @@ class RecipesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
       params.require(:recipe).permit(:title, :image)
+    end
+
+    def set_cookies
+      to_add = { id: @recipe.id, time: Time.now }
+      if cookies[:recipes_viewed] == nil
+        parsed_cookies = nil
+      else
+        parsed_cookies = JSON.parse(cookies[:recipes_viewed])
+      end
+
+      if parsed_cookies == nil or parsed_cookies.empty?
+        parsed_cookies = [to_add]
+        cookies[:recipes_viewed] = JSON.generate(parsed_cookies)
+      elsif !parsed_cookies.select{ |e| e["id"] == JSON.parse(JSON.generate(to_add[:id])) }.empty?
+        return
+      elsif parsed_cookies.length < 5
+        parsed_cookies << to_add
+        cookies[:recipes_viewed] = JSON.generate(parsed_cookies)
+      else
+        parsed_cookies = parsed_cookies.sort do |x,y| 
+          x[:time] <=> y[:time]
+        end
+
+        parsed_cookies[parsed_cookies.length - 1] = to_add
+        cookies[:recipes_viewed] = JSON.generate(parsed_cookies)
+      end
     end
 end

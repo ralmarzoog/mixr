@@ -29,3 +29,12 @@
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
+
+<% if @recently_viewed != nil and !@recently_viewed.empty? %> 
+  <h5>You recently viewed:</h5>
+  <% @recently_viewed.each do |viewed| %>
+    <p><%= viewed.title %></p>
+  <% end %>
+<% end %>
+
+
