@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
     @recently_viewed = []
     parsed_cookies.each do |r_cookie|
       r = Recipe.where(id: r_cookie["id"]["$oid"]).first
+      next if r == @recipe
       @recently_viewed << r
     end
   end
@@ -113,7 +114,7 @@ class RecipesController < ApplicationController
         cookies[:recipes_viewed] = JSON.generate(parsed_cookies)
       elsif !parsed_cookies.select{ |e| e["id"] == JSON.parse(JSON.generate(to_add[:id])) }.empty?
         return
-      elsif parsed_cookies.length < 5
+      elsif parsed_cookies.length < 6
         parsed_cookies << to_add
         cookies[:recipes_viewed] = JSON.generate(parsed_cookies)
       else
