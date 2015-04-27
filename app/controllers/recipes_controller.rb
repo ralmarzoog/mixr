@@ -14,7 +14,11 @@ class RecipesController < ApplicationController
     parsed_cookies = JSON.parse(cookies[:recipes_viewed])
     @recently_viewed = []
     parsed_cookies.each do |r_cookie|
-      r = Recipe.where(id: r_cookie["id"]["$oid"]).first
+      r = Recipe.where(id: r_cookie["id"]["$oid"])
+      if r.empty?
+        next
+      end
+      r = r.first
       next if r == @recipe
       @recently_viewed << r
     end
