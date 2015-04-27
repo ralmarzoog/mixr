@@ -11,7 +11,6 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
     set_cookies
-
     parsed_cookies = JSON.parse(cookies[:recipes_viewed])
     @recently_viewed = []
     parsed_cookies.each do |r_cookie|
