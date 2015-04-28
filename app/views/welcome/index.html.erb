@@ -16,7 +16,7 @@
     	<div class="carousel-caption">
     	<h3><%= @recipes.first.title %></h3>
     	<ul>
-  			<% @recipe.recipe_ingredients.each do |r_ingr| %>
+  			<% @recipes.recipe_ingredients.each do |r_ingr| %>
     		<li>
       			<%= r_ingr.quantity %>
       			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
