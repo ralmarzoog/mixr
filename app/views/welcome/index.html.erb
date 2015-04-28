@@ -14,44 +14,98 @@
     <div class="item active">
     	<%if @recipes.first.image? %>
     		<%= image_tag @recipes.first.image.url%>
+	    	<div class="carousel-caption">
+	    	<h3><%= @recipes[0].title %></h3>
+	    	<ul>
+	  			<% @recipes[0].recipe_ingredients.each do |r_ingr| %>
+	    		<li>
+	      			<%= r_ingr.quantity %>
+	      			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+	      			<%= render partial: "modifications", locals: { modifications: r_ingr.modifications, orig_id: r_ingr.id } %>
+	    		</li>  
+	  			<% end %>
+	  		</ul>
+  			<ol>
+					<% @recipes[0].steps.each do |step| %>
+				<li>
+  				<%= step.instruction %>
+  				<%= render partial: "modifications", locals: { modifications: step.modifications, orig_id: step.id } %>
+				</li>
+					<% end %>
+			</ol>
+	       	</div>
     	<% else %>
-    		<img src= "/assets/blank.gif">
+    		<img src= "/assets/blank.jpg">
+    		<div class="carousel-caption-no-image">
+    			<h3><%= @recipes[0].title %></h3>
+    			<ul>
+  				<% @recipes[0].recipe_ingredients.each do |r_ingr| %>
+    				<li>
+      				<%= r_ingr.quantity %>
+      				<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+      				<%= render partial: "modifications", locals: { modifications: r_ingr.modifications, orig_id: r_ingr.id } %>
+    				</li>  
+  				<% end %>
+				</ul>
+				 <ol>
+					<% @recipes[0].steps.each do |step| %>
+				<li>
+  				<%= step.instruction %>
+  				<%= render partial: "modifications", locals: { modifications: step.modifications, orig_id: step.id } %>
+				</li>
+					<% end %>
+				</ol>
+       		</div>
     	<% end %>
-    	<div class="carousel-caption">
-    	<h3><%= @recipes.first.title %></h3>
-    	<ul>
-  			<% @recipes.first.recipe_ingredients.each do |r_ingr| %>
-    		<li>
-      			<%= r_ingr.quantity %>
-      			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
-      			<%= render partial: "modifications", locals: { modifications: r_ingr.modifications, orig_id: r_ingr.id } %>
-    		</li>  
-  			<% end %>
-		</ul>
-       	</div>
     </div>
 
     <div class="item">
-      <img src="http://cdn.funcheap.com/wp-content/uploads/2014/04/The-Perfect-Grilled-Cheese-Sandwich-800-158111.jpg" alt="Chania">
-      <div class="carousel-caption">
-      	<h3>Grilled Cheese</h3>
-      </div>
+    	<%if @recipes.first.image? %>
+    		<%= image_tag @recipes.first.image.url%>
+	    	<div class="carousel-caption">
+	    	<h3><%= @recipes[1].title %></h3>
+	    	<ul>
+	  			<% @recipes[1].recipe_ingredients.each do |r_ingr| %>
+	    		<li>
+	      			<%= r_ingr.quantity %>
+	      			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+	      			<%= render partial: "modifications", locals: { modifications: r_ingr.modifications, orig_id: r_ingr.id } %>
+	    		</li>  
+	  			<% end %>
+	  		</ul>
+  			<ol>
+					<% @recipes[1].steps.each do |step| %>
+				<li>
+  				<%= step.instruction %>
+  				<%= render partial: "modifications", locals: { modifications: step.modifications, orig_id: step.id } %>
+				</li>
+					<% end %>
+			</ol>
+	       	</div>
+    	<% else %>
+    		<img src= "/assets/blank.jpg">
+    		<div class="carousel-caption-no-image">
+    			<h3><%= @recipes[1].title %></h3>
+    			<ul>
+  				<% @recipes[1].recipe_ingredients.each do |r_ingr| %>
+    				<li>
+      				<%= r_ingr.quantity %>
+      				<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+      				<%= render partial: "modifications", locals: { modifications: r_ingr.modifications, orig_id: r_ingr.id } %>
+    				</li>  
+  				<% end %>
+				</ul>
+				 <ol>
+					<% @recipes[1].steps.each do |step| %>
+					<li>
+  					<%= step.instruction %>
+  					<%= render partial: "modifications", locals: { modifications: step.modifications, orig_id: step.id } %>
+					</li>
+					<% end %>
+				</ol>
+       		</div>
+    	<% end %>
     </div>
-
-    <div class="item">
-      <img src="https://girlgoesvegan.files.wordpress.com/2011/02/076.jpg" alt="Flower">
-             <div class="carousel-caption">
-       		<h3>Grilled Cheese & Tomato Soup</h3>
-       	</div>
-    </div>
-
-    <div class="item">
-      <img src="http://www.singforyoursupperblog.com/wp271/wp-content/uploads/2009/08/mintbrownie3.jpg" alt="Flower">
-             <div class="carousel-caption">
-       		<h3>Brownies</h3>
-       	</div>
-    </div>
-  </div>
 
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">

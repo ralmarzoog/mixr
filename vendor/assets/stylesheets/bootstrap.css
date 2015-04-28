@@ -1517,7 +1517,8 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: "Open Sans Condensed";
+  /*Menlo, Monaco, Consolas, "Courier New", monospace;*/
 }
 code {
   padding: 2px 4px;
@@ -3864,6 +3865,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  font-family: "Open Sans Condensed";
 }
 .nav > li {
   position: relative;
@@ -4164,6 +4166,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-width: 1px 0 0;
 }
 .navbar-brand {
+  font-family: "Poiret One";
   float: left;
   height: 50px;
   padding: 15px 15px;
@@ -6255,6 +6258,36 @@ button.close {
   text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
 }
 
+.carousel-caption {
+  visibility: visible;
+  position: absolute;
+  top: -10px;
+  bottom: auto;
+  /*right: 5%;
+  left: 15%;*/
+  z-index: 10;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  color: #000;
+  text-align: left;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+
+.carousel-caption-no-image {
+  visibility: visible;
+  position: absolute;
+  top: -10px;
+  bottom: auto;
+  /*right: 5%;
+  left: 15%;*/
+  z-index: 10;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  color: #000;
+  text-align: left;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+
 .carousel:hover .carousel-caption { 
   visibility: visible; 
 }
@@ -6285,7 +6318,7 @@ button.close {
   .carousel-control .icon-next {
     margin-right: -15px;
   }
-  .carousel-caption {
+  .carousel-caption, .carousel-caption-no-image {
     right: 20%;
     left: 20%;
     padding-bottom: 30px;
