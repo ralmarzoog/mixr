@@ -6,7 +6,6 @@
 jQuery ->
   ingr_count = 3
   step_count = 3
-  console.log("hey")
   $("#add-ingredient").click (event)->
     to_add = '<div class="field ingredients-field">'
     to_add += '<label for="recipe_recipe_ingredients_attributes_' + ingr_count
@@ -33,12 +32,16 @@ jQuery ->
     step_count++
 
   $(".mod-toggle").click (event) ->
+    origId = $(event.target).attr('id')
+    origId = origId.substr(8, origId.length)
     if $(event.target).hasClass("fa-comment")
-      $(event.target).removeClass("fa-comment").addClass("fa-comment-o") 
-      $(event.target).parent().find(".suggestions").show("fast");
+      $(".suggestions").hide("fast")
+      $(".fa-comment-o").removeClass("fa-comment-o").addClass("fa-comment")
+      $(event.target).removeClass("fa-comment").addClass("fa-comment-o")
+      $("#orig-mods-" + origId).show("fast")
     else
-      $(event.target).removeClass("fa-comment-o").addClass("fa-comment") 
-      $(event.target).parent().find(".suggestions").hide("fast");
+      $(".suggestions").hide("fast")
+      $(".fa-comment-o").removeClass("fa-comment-o").addClass("fa-comment")
 
   $(".submit-mod").click (event) ->
     suggestion = $(event.target).parent().find(".new-mod").val()

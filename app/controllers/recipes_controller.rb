@@ -9,6 +9,19 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    @modifications = []
+    @recipe.recipe_ingredients.each do |r_ingr|
+      r_ingr.modifications.each do |mod|
+        @modifications << mod
+      end
+    end
+
+    @recipe.steps.each do |step|
+      step.modifications.each do |step|
+        @modifications << step
+      end
+    end
+
     set_cookies
     parsed_cookies = JSON.parse(cookies[:recipes_viewed])
     @recently_viewed = []
