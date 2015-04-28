@@ -303,7 +303,7 @@ rateAlert = function(id, rating) {
         type: "POST",
         data: {
             value: rating,
-            modification_id: id
+            id: id
         },
         url: "/votes/",
         success: function(data) {
@@ -325,3 +325,4 @@ $(function() {
         numStars: 5
     });
 });
+

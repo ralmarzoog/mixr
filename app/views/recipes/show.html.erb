@@ -5,7 +5,7 @@
   <strong>Title:</strong>
   <%= @recipe.title %>
 </p>
-
+<div class="ratebox" data-id=<%= @recipe.id %> id=<%= @recipe.id %> data-rating=<% @recipe.rating %> mtype="recipe"></div>
 <%= image_tag @recipe.image.url if @recipe.image? %>
 
 <ul>
