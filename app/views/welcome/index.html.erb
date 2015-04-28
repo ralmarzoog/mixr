@@ -15,6 +15,15 @@
     	<%= image_tag @recipes.first.image.url if !@recipes.empty? && @recipes.first.image? %>
     	<div class="carousel-caption">
     	<h3><%= @recipes.first.title %></h3>
+    	<ul>
+  			<% @recipe.recipe_ingredients.each do |r_ingr| %>
+    		<li>
+      			<%= r_ingr.quantity %>
+      			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+      			<%= render partial: "modifications", locals: { modifications: r_ingr.modifications, orig_id: r_ingr.id } %>
+    		</li>  
+  			<% end %>
+		</ul>
        	</div>
     </div>
 
