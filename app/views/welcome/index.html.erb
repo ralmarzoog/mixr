@@ -12,11 +12,15 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-    	<%= image_tag @recipes.first.image.url if !@recipes.empty? && @recipes.first.image? %>
+    	<%if @recipes.first.image? %>
+    		<%= image_tag @recipes.first.image.url%>
+    	<% else %>
+    		<img src= "/assets/blank.gif">
+    	<% end %>
     	<div class="carousel-caption">
     	<h3><%= @recipes.first.title %></h3>
     	<ul>
-  			<% @recipes.recipe_ingredients.each do |r_ingr| %>
+  			<% @recipes.first.recipe_ingredients.each do |r_ingr| %>
     		<li>
       			<%= r_ingr.quantity %>
       			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
