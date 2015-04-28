@@ -15,66 +15,66 @@
     	<%if @recipes.first.image? %>
     		<%= image_tag @recipes.first.image.url%>
 	    	<div class="carousel-caption">
-	    		<h3><%= @recipes[0].title %></h3>
-	    		<ul>
-	  				<% @recipes[0].recipe_ingredients.each do |r_ingr| %>
-	    			<li>
-	      				<%= r_ingr.quantity %>
-	      				<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
-	    			</li>  
-	  				<% end %>
-	  			</ul>
-  				<ol>
-					<% @recipes[0].steps.each do |step| %>
-					<li>
+	    	<h3><%= @recipes[0].title %></h3>
+	    	<ul>
+	  			<% @recipes[0].recipe_ingredients.each do |r_ingr| %>
+	    		<li>
+	      			<%= r_ingr.quantity %>
+	      			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+	    		</li>  
+	  			<% end %>
+	  		</ul>
+  			<ol>
+				<% @recipes[0].steps.each do |step| %>
+				<li>
   					<%= step.instruction %>
-					</li>
-					<% end %>
-				</ol>
+				</li>
+				<% end %>
+			</ol>
 	       	</div>
     	<% else %>
     		<img src= "/assets/blank.jpg">
     		<div class="carousel-caption-no-image">
     			<h3><%= @recipes[0].title %></h3>
     			<ul>
-  				<% @recipes[0].recipe_ingredients.each do |r_ingr| %>
+  					<% @recipes[0].recipe_ingredients.each do |r_ingr| %>
     				<li>
-      				<%= r_ingr.quantity %>
-      				<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+      					<%= r_ingr.quantity %>
+      					<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
     				</li>  
-  				<% end %>
+  					<% end %>
 				</ul>
 				<ol>
 					<% @recipes[0].steps.each do |step| %>
 					<li>
-  					<%= step.instruction %>
+  						<%= step.instruction %>
 					</li>
 					<% end %>
 				</ol>
        		</div>
-    		<% end %>
-    	</div>
+    	<% end %>
+    </div>
 
     <div class="item">
     	<%if @recipes.first.image? %>
     		<%= image_tag @recipes.first.image.url%>
 	    	<div class="carousel-caption">
-	    		<h3><%= @recipes[1].title %></h3>
-	    		<ul>
-	  				<% @recipes[1].recipe_ingredients.each do |r_ingr| %>
-	    			<li>
-	      				<%= r_ingr.quantity %>
-	      				<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
-	    			</li>  
-	  				<% end %>
-	  			</ul>
-  				<ol>
-					<% @recipes[1].steps.each do |step| %>
-					<li>
-  					<%= step.instruction %>
-					</li>
+	    	<h3><%= @recipes[1].title %></h3>
+	    	<ul>
+	  			<% @recipes[1].recipe_ingredients.each do |r_ingr| %>
+	    		<li>
+	      			<%= r_ingr.quantity %>
+	      			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+	    		</li>  
+	  			<% end %>
+	  		</ul>
+  			<ol>
+				<% @recipes[1].steps.each do |step| %>
+				<li>
+  				<%= step.instruction %>
+				</li>
 					<% end %>
-				</ol>
+			</ol>
 	       	</div>
     	<% else %>
     		<img src= "/assets/blank.jpg">
@@ -88,7 +88,7 @@
     				</li>  
   					<% end %>
 				</ul>
-				 <ol>
+				<ol>
 					<% @recipes[1].steps.each do |step| %>
 					<li>
   					<%= step.instruction %>
@@ -98,27 +98,27 @@
        		</div>
     	<% end %>
     </div>
-
-	<div class="item">
+    
+    <div class="item">
     	<%if @recipes.first.image? %>
     		<%= image_tag @recipes.first.image.url%>
 	    	<div class="carousel-caption">
-	    		<h3><%= @recipes[2].title %></h3>
-	    		<ul>
-	  				<% @recipes[2].recipe_ingredients.each do |r_ingr| %>
-	    			<li>
-	      				<%= r_ingr.quantity %>
-	      				<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
-	    			</li>  
-	  				<% end %>
-	  			</ul>
-  				<ol>
-					<% @recipes[2].steps.each do |step| %>
-					<li>
-  						<%= step.instruction %>
-					</li>
+	    	<h3><%= @recipes[2].title %></h3>
+	    	<ul>
+	  			<% @recipes[2].recipe_ingredients.each do |r_ingr| %>
+	    		<li>
+	      			<%= r_ingr.quantity %>
+	      			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+	    		</li>  
+	  			<% end %>
+	  		</ul>
+  			<ol>
+				<% @recipes[2].steps.each do |step| %>
+				<li>
+  				<%= step.instruction %>
+				</li>
 					<% end %>
-				</ol>
+			</ol>
 	       	</div>
     	<% else %>
     		<img src= "/assets/blank.jpg">
@@ -127,42 +127,42 @@
     			<ul>
   					<% @recipes[2].recipe_ingredients.each do |r_ingr| %>
     				<li>
-      					<%= r_ingr.quantity %>
-      					<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+      				<%= r_ingr.quantity %>
+      				<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
     				</li>  
   					<% end %>
 				</ul>
 				<ol>
 					<% @recipes[2].steps.each do |step| %>
 					<li>
-  						<%= step.instruction %>
+  					<%= step.instruction %>
 					</li>
 					<% end %>
 				</ol>
        		</div>
     	<% end %>
     </div>
-   
+    
     <div class="item">
     	<%if @recipes.first.image? %>
     		<%= image_tag @recipes.first.image.url%>
 	    	<div class="carousel-caption">
-	    		<h3><%= @recipes[3].title %></h3>
-	    		<ul>
-	  				<% @recipes[3].recipe_ingredients.each do |r_ingr| %>
-	    			<li>
-	      				<%= r_ingr.quantity %>
-	      				<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
-	    			</li>  
-	  				<% end %>
-	  			</ul>
-  				<ol>
-					<% @recipes[3].steps.each do |step| %>
-					<li>
-  						<%= step.instruction %>
-					</li>
+	    	<h3><%= @recipes[3].title %></h3>
+	    	<ul>
+	  			<% @recipes[3].recipe_ingredients.each do |r_ingr| %>
+	    		<li>
+	      			<%= r_ingr.quantity %>
+	      			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+	    		</li>  
+	  			<% end %>
+	  		</ul>
+  			<ol>
+				<% @recipes[3].steps.each do |step| %>
+				<li>
+  				<%= step.instruction %>
+				</li>
 					<% end %>
-				</ol>
+			</ol>
 	       	</div>
     	<% else %>
     		<img src= "/assets/blank.jpg">
@@ -171,22 +171,24 @@
     			<ul>
   					<% @recipes[3].recipe_ingredients.each do |r_ingr| %>
     				<li>
-      					<%= r_ingr.quantity %>
-      					<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
+      				<%= r_ingr.quantity %>
+      				<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
     				</li>  
   					<% end %>
 				</ul>
 				<ol>
 					<% @recipes[3].steps.each do |step| %>
 					<li>
-  						<%= step.instruction %>
+  					<%= step.instruction %>
 					</li>
 					<% end %>
 				</ol>
        		</div>
     	<% end %>
     </div>
+
   </div>
+
 
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">

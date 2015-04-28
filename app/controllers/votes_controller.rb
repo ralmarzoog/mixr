@@ -5,9 +5,13 @@ class VotesController < ApplicationController
 
   def create
     # When we add users, check if user has voted before and if so, update
-    modification = Modification.find(params[:modification_id])
-    @vote = Vote.create(modification: modification, value: params[:value])
-    redirect_to :back, rating: @vote.modification.rating
+    begin 
+      to_be_rated = Modification.find(params[:id])
+    rescue Mongoid::Errors::DocumentNotFound
+      to_be_rated = Recipe.find(params[:id])
+    end
+    @vote = Vote.create(rateable: to_be_rated, value: params[:value])
+    redirect_to :back, rating: @vote.rateable.rating
   end
 
   private
