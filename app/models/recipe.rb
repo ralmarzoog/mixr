@@ -5,7 +5,7 @@ class Recipe
 
   has_many :recipe_ingredients, dependent: :delete
   has_many :steps, dependent: :delete
-  has_many :votes
+  has_many :votes, as: :rateable
 
   validates :title, presence: true, length: { minimum: 2, maximum: 255 }
 

@@ -3,7 +3,7 @@ class Modification
   field :suggestion, type: String
 
   belongs_to :original, polymorphic: true
-  has_many :votes
+  has_many :votes, as: :rateable
 
   validates :suggestion, presence: true, length: { minimum: 2 }
 

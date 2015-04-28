@@ -9,6 +9,16 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    @recipe_votes = {}
+    @recipe.votes.each do |vote|
+      date = vote.id.generation_time.to_date
+      if !@recipe_votes[date]
+        @recipe_votes[date] = vote.value
+      else
+        @recipe_votes[date] += vote.value
+      end
+    end
+
     @modifications = []
     @recipe.recipe_ingredients.each do |r_ingr|
       r_ingr.modifications.each do |mod|

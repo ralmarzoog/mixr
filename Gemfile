@@ -27,6 +27,7 @@ gem 'configatron'
 gem "mongoid", "~> 4.0.0"
 gem 'mongoid-paperclip', require: 'mongoid_paperclip'
 gem 'aws-sdk', '< 2.0'
+gem 'chartkick'
 
 
 # Use ActiveModel has_secure_password
