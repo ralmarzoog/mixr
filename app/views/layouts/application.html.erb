@@ -39,17 +39,22 @@
       <div id="navbar" class="collapse navbar-collapse">
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search Recipies">
           </div>
           <button type="submit" class="btn btn-default">
             <span class="fa fa-search"></span>
           </button>
         </form>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right navbar-static-top">
+          <!-- TODO: If not logged in do this. change to login path -->
+          <li><%= link_to 'Login In', '#' %></li>
+          <!-- TODO: else show these -->
+          <!--
           <li><%= link_to 'Add recipe', new_recipe_path %></li>
-          <li><%= link_to 'About', '#' %></li>
-          <li><%= link_to 'Contact', '#' %></li>
+          <li><%= link_to 'Logout', '#'%></li>-->
+
         </ul>
+
       </div><!--/.nav-collapse -->
     </div>
   </nav>
