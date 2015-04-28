@@ -10,10 +10,10 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
   	<div class="item active">
-    	<%if @recipes.first.image? %>
-    		<%= image_tag @recipes.first.image.url%>
+    	<%if @recipes[0].image? %>
+    		<%=image_tag @recipes[0].image.url%>
 	    	<div class="carousel-caption">
-	    	<h3><%= @recipes[0].title %></h3>
+	    	<h3><%= link_to @recipes[0].title, @recipes[0] %></h3>
 	    	<ul>
 	  			<% @recipes[0].recipe_ingredients.each do |r_ingr| %>
 	    		<li>
@@ -31,9 +31,9 @@
 			</ol>
 	       	</div>
     	<% else %>
-    		<img src= "/assets/blank.jpg">
+    		<%= image_tag("blank.jpg")%>
     		<div class="carousel-caption-no-image">
-    			<h3><%= @recipes[0].title %></h3>
+	    	<h3><%= link_to @recipes[0].title, @recipes[0] %></h3>
     			<ul>
   					<% @recipes[0].recipe_ingredients.each do |r_ingr| %>
     				<li>
@@ -54,10 +54,10 @@
     </div>
 
     <div class="item">
-    	<%if @recipes.first.image? %>
-    		<%= image_tag @recipes.first.image.url%>
+    	<%if @recipes[1].image? %>
+    	    <%= image_tag @recipes[1].image.url %>
 	    	<div class="carousel-caption">
-	    	<h3><%= @recipes[1].title %></h3>
+	    	<h3><%= link_to @recipes[1].title, @recipes[1] %></h3>
 	    	<ul>
 	  			<% @recipes[1].recipe_ingredients.each do |r_ingr| %>
 	    		<li>
@@ -75,9 +75,9 @@
 			</ol>
 	       	</div>
     	<% else %>
-    		<img src= "/assets/blank.jpg">
+    	    <%= image_tag("blank.jpg") %>
     		<div class="carousel-caption-no-image">
-    			<h3><%= @recipes[1].title %></h3>
+	    	<h3><%= link_to @recipes[1].title, @recipes[1] %></h3>
     			<ul>
   					<% @recipes[1].recipe_ingredients.each do |r_ingr| %>
     				<li>
@@ -96,7 +96,6 @@
        		</div>
     	<% end %>
     </div>
-    
 
   </div>
 
