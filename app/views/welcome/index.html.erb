@@ -12,9 +12,9 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="http://www.cookingclassy.com/wp-content/uploads/2012/11/mac+and+cheese55.jpg" alt="Chania">
-       <div class="carousel-caption">
-       		<h3>Mac & Cheese</h3>
+    	<%= image_tag @recipies.first.image.url if@recipies.first.image? %>
+    	<div class="carousel-caption">
+    	<h3><%= @ecipes.first.tile %></h3>
        	</div>
     </div>
 
