@@ -37,7 +37,7 @@
         <a class="navbar-brand" href="/">MIXR</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
-        <form action="/search" class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
           </div>
