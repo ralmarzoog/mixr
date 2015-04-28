@@ -21,7 +21,6 @@
 	    		<li>
 	      			<%= r_ingr.quantity %>
 	      			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
-	      			<%= render partial: "modifications", locals: { modifications: r_ingr.modifications, orig_id: r_ingr.id } %>
 	    		</li>  
 	  			<% end %>
 	  		</ul>
@@ -29,7 +28,6 @@
 					<% @recipes[0].steps.each do |step| %>
 				<li>
   				<%= step.instruction %>
-  				<%= render partial: "modifications", locals: { modifications: step.modifications, orig_id: step.id } %>
 				</li>
 					<% end %>
 			</ol>
@@ -43,7 +41,6 @@
     				<li>
       				<%= r_ingr.quantity %>
       				<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
-      				<%= render partial: "modifications", locals: { modifications: r_ingr.modifications, orig_id: r_ingr.id } %>
     				</li>  
   				<% end %>
 				</ul>
@@ -51,7 +48,6 @@
 					<% @recipes[0].steps.each do |step| %>
 				<li>
   				<%= step.instruction %>
-  				<%= render partial: "modifications", locals: { modifications: step.modifications, orig_id: step.id } %>
 				</li>
 					<% end %>
 				</ol>
@@ -69,7 +65,6 @@
 	    		<li>
 	      			<%= r_ingr.quantity %>
 	      			<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
-	      			<%= render partial: "modifications", locals: { modifications: r_ingr.modifications, orig_id: r_ingr.id } %>
 	    		</li>  
 	  			<% end %>
 	  		</ul>
@@ -77,7 +72,6 @@
 					<% @recipes[1].steps.each do |step| %>
 				<li>
   				<%= step.instruction %>
-  				<%= render partial: "modifications", locals: { modifications: step.modifications, orig_id: step.id } %>
 				</li>
 					<% end %>
 			</ol>
@@ -91,7 +85,6 @@
     				<li>
       				<%= r_ingr.quantity %>
       				<%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %>
-      				<%= render partial: "modifications", locals: { modifications: r_ingr.modifications, orig_id: r_ingr.id } %>
     				</li>  
   				<% end %>
 				</ul>
@@ -99,7 +92,6 @@
 					<% @recipes[1].steps.each do |step| %>
 					<li>
   					<%= step.instruction %>
-  					<%= render partial: "modifications", locals: { modifications: step.modifications, orig_id: step.id } %>
 					</li>
 					<% end %>
 				</ol>
