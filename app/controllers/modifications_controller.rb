@@ -16,7 +16,7 @@ class ModificationsController < ApplicationController
         @modification = Modification.create(suggestion: params[:suggestion], 
                                    original: original)
 
-        @modification.original.email_subscribers
+        @modification.original.recipe.email_subscribers
       end
     else 
       flash[:error] = "Nothing to modify."

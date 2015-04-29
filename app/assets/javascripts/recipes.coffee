@@ -55,16 +55,20 @@ jQuery ->
       error: (xhr, status, errorThrown) ->
         alert "Error " + errorThrown
 
-  $("#submit-sub").click (event) ->
-    console.log($("#add-subscriber").val());
+  $(".submit-sub").click (event) ->
+    console.log("here")
     recipe_id = $(event.target).attr('id');
     recipe_id = recipe_id.substr(1, recipe_id.length - 1);
+    console.log(recipe_id)
+    console.log($("#add-subscriber").val())
     $.ajax
       type: "POST"
       data: { subscriber: $("#add-subscriber").val(), recipe_id: recipe_id }
       url: "/subscribers/"
       success: (data) ->
-        location.reload()
+        alert "Congratulations! You're subscribed!"
+      error: (data) ->
+        alert "Error"
 
 
  

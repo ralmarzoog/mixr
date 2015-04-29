@@ -86,7 +86,7 @@
             <p>Want to be notified when new modifications are added to this recipe? Enter your email here.</p>
             <div>
               <%= text_field_tag "add-subscriber", "", id: "add-subscriber" %>
-              <%= submit_tag "Submit", id: "submit-sub", id: "r" + @recipe.id %>
+              <%= submit_tag "Submit", class: "submit-sub", id: "r" + @recipe.id %>
           </div>
           </div>
 
