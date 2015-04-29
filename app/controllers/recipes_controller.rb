@@ -9,14 +9,22 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
-    @recipe_votes = {}
+    @recipe_votes_count = {}
+    @recipe_avgs = {}
     @recipe.votes.each do |vote|
       date = vote.id.generation_time.to_date
-      if !@recipe_votes[date]
-        @recipe_votes[date] = vote.value
+      if !@recipe_avgs[date]
+        @recipe_votes_count[date] = 1
+        @recipe_avgs[date] = vote.value
       else
-        @recipe_votes[date] += vote.value
+        @recipe_votes_count[date] += 1
+        @recipe_avgs[date] += vote.value
       end
+    end
+
+    @recipe.votes.each do |vote|
+      date = vote.id.generation_time.to_date
+      @recipe_avgs[date] = @recipe_avgs[date] / @recipe_votes_count[date]
     end
 
     @modifications = []

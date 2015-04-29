@@ -90,7 +90,8 @@
             <% end %>
           <% end %>
 
-          <%= line_chart @recipe_votes %>
+          <%= line_chart [ { name: "Average rating", data: @recipe_avgs },
+                           { name: "Num ratings", data: @recipe_votes_count } ] %>
         </div>
       </div>
     </div>
