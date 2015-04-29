@@ -1,0 +1,34 @@
+<% if @recipes.empty? %>
+  <h3>Sorry, no results found</h3>
+<% else %>
+  <% @recipes.each do |recipe| %>
+    <h3><%= recipe.title %></h3>
+    <%= image_tag recipe.image.url, class:"image" if recipe.image? %>
+    <h4 class="subtitle">Ingredients</h4>
+    
+    <ul class="recipe-ingredients">
+        <% recipe.recipe_ingredients.each do |r_ingr| %>
+            <% next unless r_ingr and r_ingr.ingredient %>
+                <li>
+                  <i class="fa fa-comment mod-toggle" id=<%= "orig-id-" + r_ingr.id %>></i>
+                  <span class="italic"><%= r_ingr.quantity %></span>
+                  <span class="bold"><%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %></span>
+                </li>
+            <% end %>
+    </ul>
+
+    <h4 class="subtitle">Directions</h4>
+              <ol class="steps">
+                <% recipe.steps.each do |step| %>
+                    <li>
+                      <i class="fa fa-comment mod-toggle" id=<%= "orig-id-" + step.id %>></i>
+                      <%= step.instruction %>
+                    </li>
+                <% end %>
+              </ol>
+
+ <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
+
+  <% end %>
+<% end %>
+

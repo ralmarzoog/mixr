@@ -1,3 +1,7 @@
+<% provide(:title, @recipe.title) %>
+
+
+
 <div id="wrapper">
   <!-- Sidebar -->
   <div id="sidebar-wrapper">
@@ -65,11 +69,8 @@
                 <% end %>
               </ul>
 
-<<<<<<< HEAD
-=======
-              <%= image_tag @recipe.image.url, class:"image" if @recipe.image? %>
+              <%= image_tag @recipe.image.url, class="image" if @recipe.image? %>
 
->>>>>>> 676b0b007e1edb227086eb32f6b659585e5d7092
               <h4 class="subtitle">Directions</h4>
               <ol class="steps">
                 <% @recipe.steps.each do |step| %>
@@ -96,10 +97,6 @@
     </div>
   </div>
   <!-- /#page-content-wrapper -->
-  <div id ="right-sidebar">
-    <br><br>
-    <%= image_tag @recipe.image.url if @recipe.image?%>
-  </div>
 
 </div>
 <!-- /#wrapper -->
@@ -117,4 +114,6 @@
         $("#wrapper").toggleClass("toggled");
     });
 </script>
+
+
 
