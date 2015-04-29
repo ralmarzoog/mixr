@@ -3,7 +3,7 @@ class SearchController < ApplicationController
     @all_recipes = Recipe.all
 
     @recipes = []
-    search_terms = params[:search].split
+    search_terms = params[:search].downcase.split
     
     @all_recipes.each do |recipe|
       has_term = false
