@@ -28,7 +28,7 @@ class Recipe
 
   def email_subscribers
     self.subscribers.each do |sub|
-      UserMailer.new_modification(sub.email, recipe.title, recipe.id).deliver
+      UserMailer.new_modification(sub.email, self.title, self.id).deliver
     end
   end
 
