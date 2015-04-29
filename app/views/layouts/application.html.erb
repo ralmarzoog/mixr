@@ -28,6 +28,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1459551611002948";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -47,20 +56,8 @@
         <% end %> 		
       <% end%>
         <ul class="nav navbar-nav navbar-right navbar-static-top">
+          <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" scope="email"></div>
           <li class = "loggedin"><%= link_to 'Add recipe', new_recipe_path %></li>
-          <li class = "loggedin"><%= link_to 'Logout', '#'%></li>
-          <li class = "loggedout"> <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-          </fb:login-button> </li>
-        <script type="text/javascript">
-          FB.getLoginStatus(function(response) {
-            if (response.status === 'connected') {
-              $('.loggedin').style.visibility = 'visible';
-              $('.loggedout').style.visibility = 'hidden';
-            } else {
-              $('.loggedin').style.visibility = 'hidden';
-              $('.loggedout').style.visibility = 'visible';
-            }
-           });
         </script>
         </ul>
 
