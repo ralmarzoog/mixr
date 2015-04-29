@@ -16,9 +16,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_directory ../../../vendor/assets/javascripts/
-//= require_tree .
+//= require_tree
 
-<<<<<<< HEAD
 // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -98,5 +97,3 @@
     });
   }
 
-=======
->>>>>>> 676b0b007e1edb227086eb32f6b659585e5d7092
