@@ -40,7 +40,7 @@
         <a class="navbar-brand" href="/">MIXR</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
-      <%=form_tag({ controller: "search", action:"index", method:"get"}, {class: "navbar-form navbar-left"}) do%>
+        <%=form_tag("/search", method: :get, class: "navbar-form navbar-left" ) do%>
         <%=text_field_tag "search", nil, class:"form-control"%>
         <%= button_tag(type: "Submit", class: "btn btn-default") do %>
           <span class="fa fa-search"></span>

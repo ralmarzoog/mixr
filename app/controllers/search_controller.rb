@@ -1,9 +1,11 @@
 class SearchController < ApplicationController
-	def index
-	
-	end
-	def create
-		
-	redirect_to search_index_path
+	def search
+    @recipes = Recipe.all
+
+    @recipes = @recipes.select do |recipe|
+      recipe.title.downcase == params[:search].downcase
+    end
+
+    render "search_results"
 	end
 end
