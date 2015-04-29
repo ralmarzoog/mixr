@@ -48,6 +48,7 @@
       <% end%>
         <ul class="nav navbar-nav navbar-right navbar-static-top">
           <li class = "loggedin"><%= link_to 'Add recipe', new_recipe_path %></li>
+          <li class = "loggedin"><%= link_to 'My Recipes', '#'%></li>
           <li class = "loggedin"><%= link_to 'Logout', '#'%></li>
           <li class = "loggedout"> <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
           </fb:login-button> </li>
