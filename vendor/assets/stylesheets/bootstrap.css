@@ -4062,6 +4062,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
+
+.loggedin {
+  visibility: hidden;
+}
+
+.loggedout {
+  position: fixed;
+  margin-top: 15px;
+  visibility: visible;
+  right: 8%;
+}
+
 @media (min-width: 768px) {
   .navbar {
     border-radius: 4px;
@@ -6248,23 +6260,6 @@ button.close {
   position: absolute;
   top: -10px;
   bottom: auto;
-  /*right: 5%;
-  left: 15%;*/
-  z-index: 10;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  color: #000;
-  text-align: left;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-}
-
-.carousel-caption {
-  visibility: visible;
-  position: absolute;
-  top: -10px;
-  bottom: auto;
-  /*right: 5%;
-  left: 15%;*/
   z-index: 10;
   padding-top: 10px;
   padding-bottom: 20px;
@@ -6278,8 +6273,6 @@ button.close {
   position: absolute;
   top: -10px;
   bottom: auto;
-  /*right: 5%;
-  left: 15%;*/
   z-index: 10;
   padding-top: 10px;
   padding-bottom: 20px;
@@ -6293,6 +6286,7 @@ button.close {
   text-decoration: none;
   color: #000;
   background-color:transparent;
+  visibility: visible;
 }
 
 .carousel-caption a:hover,
@@ -6307,7 +6301,7 @@ button.close {
 }
 
 .carousel:hover .carousel-inner > .item > img{
-  opacity: 0.4;
+  opacity: 0.7;
   filter: alpha(opacity=40);
 }
 
