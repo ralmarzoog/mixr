@@ -64,6 +64,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+    UserMailer.new_modification("reema.almarzoog@gmail.com")
   end
 
   # POST /recipes
