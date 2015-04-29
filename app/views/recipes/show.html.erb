@@ -69,7 +69,7 @@
                 <% end %>
               </ul>
 
-              <%= image_tag @recipe.image.url if @recipe.image? %>
+              <%= image_tag @recipe.image.url, class:"image" if @recipe.image? %>
 
               <h4 class="subtitle">Directions</h4>
               <ol class="steps">
