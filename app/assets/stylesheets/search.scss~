@@ -27,7 +27,8 @@
   font-weight: bold;
 }
 
-.image{
-  width:540px; /* you can use % */
-  height: auto;
+.link:hover{
+  background-color: white;
 }
+
+
