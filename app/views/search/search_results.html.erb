@@ -3,7 +3,7 @@
 <% else %>
   <% @recipes.each do |recipe| %>
     <h3><%= recipe.title %></h3>
-    <p><%= image_tag recipe.image.url if recipe.image? %></p>
+    <%= image_tag recipe.image.url, class:"image" if recipe.image? %>
     <h4 class="subtitle">Ingredients</h4>
     
     <ul class="recipe-ingredients">
