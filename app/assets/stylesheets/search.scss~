@@ -27,7 +27,7 @@
   font-weight: bold;
 }
 
-a:hover{
+.link:hover{
   background-color: white;
 }
 

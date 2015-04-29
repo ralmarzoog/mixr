@@ -1,31 +1,10 @@
 <% if @recipes.empty? %>
   <h3>Sorry, no results found</h3>
 <% else %>
+  <h3>Search Results:</h3>
   <% @recipes.each do |recipe| %>
-    <h3><%= recipe.title %></h3>
-    <p><%= image_tag recipe.image.url if recipe.image? %></p>
-    <h4 class="subtitle">Ingredients</h4>
+    <h3 class:"link"><%= link_to @recipes[0].title, @recipes[0] %></h3>
     
-    <ul class="recipe-ingredients">
-        <% recipe.recipe_ingredients.each do |r_ingr| %>
-            <% next unless r_ingr and r_ingr.ingredient %>
-                <li>
-                  <i class="fa fa-comment mod-toggle" id=<%= "orig-id-" + r_ingr.id %>></i>
-                  <span class="italic"><%= r_ingr.quantity %></span>
-                  <span class="bold"><%= r_ingr.ingredient.name if r_ingr and r_ingr.ingredient %></span>
-                </li>
-            <% end %>
-    </ul>
-
-    <h4 class="subtitle">Directions</h4>
-              <ol class="steps">
-                <% recipe.steps.each do |step| %>
-                    <li>
-                      <i class="fa fa-comment mod-toggle" id=<%= "orig-id-" + step.id %>></i>
-                      <%= step.instruction %>
-                    </li>
-                <% end %>
-              </ol>
   <% end %>
 <% end %>
 

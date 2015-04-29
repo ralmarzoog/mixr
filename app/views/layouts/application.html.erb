@@ -56,8 +56,20 @@
         <% end %> 		
       <% end%>
         <ul class="nav navbar-nav navbar-right navbar-static-top">
-          <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" scope="email" ></div>
           <li class = "loggedin"><%= link_to 'Add recipe', new_recipe_path %></li>
+          <li class = "loggedin"><%= link_to 'My Recipes', '#'%></li>
+          <li class = "loggedin"><%= link_to 'Logout', '#'%></li>
+          <li class = "loggedout"> <div class="fb-login-button" data-auto-logout-link="true" scope="email"></div></li>
+        <script type="text/javascript">
+          FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+              $('.loggedin').style.visibility = 'visible';
+              $('.loggedout').style.visibility = 'hidden';
+            } else {
+              $('.loggedin').style.visibility = 'hidden';
+              $('.loggedout').style.visibility = 'visible';
+            }
+           });
         </script>
         </ul>
 

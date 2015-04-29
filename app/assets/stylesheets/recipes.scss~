@@ -23,11 +23,6 @@
   }
 }
 
-.image{
-  width:540px;
-  height: auto;
-}
-
 .subtitle {
   text-align: left;
   font-weight: bold;
@@ -65,7 +60,6 @@
 }
 
 #wrapper {
-  width:70%;
   margin-top: -40px;
 }
 
@@ -103,9 +97,6 @@
   overflow: hidden;
 }
 
-img {
-   max-width: 100% !important;
- }
 
 /*!
  * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
@@ -233,21 +224,3 @@ img {
     margin-right: 0;
   }
 }
-
-#right-sidebar{
-  position:absolute;
-  float:right;
-  top:0;
-  right:0;
-  width:30%;
-  height:200%;
-  background-color: #eee;
-  z-index: -1;
-}
- 
-@media screen{
-  body>div#right-sidebar{
-   position:fixed;
-  }
- }
-
