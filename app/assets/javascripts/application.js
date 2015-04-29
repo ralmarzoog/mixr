@@ -97,3 +97,11 @@
     });
   }
 
+jQuery( document ).ready(function( $ ) {
+  $('#logout-btn').click(function(event) {
+    FB.logout(function(response) {
+      window.location = '/';
+    });
+  });
+});
+
