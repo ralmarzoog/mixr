@@ -11,9 +11,11 @@ class RecipesController < ApplicationController
   def show
     @recipe_votes_count = {}
     @recipe_avgs = {}
+    dates = []
     @recipe.votes.each do |vote|
       date = vote.id.generation_time.to_date
       if !@recipe_avgs[date]
+        dates << date
         @recipe_votes_count[date] = 1
         @recipe_avgs[date] = vote.value
       else
@@ -22,8 +24,7 @@ class RecipesController < ApplicationController
       end
     end
 
-    @recipe.votes.each do |vote|
-      date = vote.id.generation_time.to_date
+    dates.each do |date|
       @recipe_avgs[date] = @recipe_avgs[date] / @recipe_votes_count[date]
     end
 
