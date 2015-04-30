@@ -6,20 +6,15 @@ class ModificationsController < ApplicationController
   end
 
   def create
-    if params[:original_id]
+    if params[:original_id] and params[:suggestion] and !params[:suggestion].blank?
       id = BSON::ObjectId.from_string(params[:original_id])
       original = RecipeIngredient.where(_id: id).first 
       original = Step.where(_id: id).first if !original
-      unless original
-        flash[:error] = "Error creating your modification."
-      else
+      if original
         @modification = Modification.create(suggestion: params[:suggestion], 
                                    original: original)
-
         @modification.original.recipe.email_subscribers
       end
-    else 
-      flash[:error] = "Nothing to modify."
     end
     redirect_to :back
   end

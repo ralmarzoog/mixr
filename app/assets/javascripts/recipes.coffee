@@ -55,7 +55,7 @@ jQuery ->
       success: (data) ->
         location.reload()
       error: (xhr, status, errorThrown) ->
-        alert "Error " + errorThrown
+        alert "Error"
 
   $(".submit-sub").click (event) ->
     recipe_id = $(event.target).attr('id');
