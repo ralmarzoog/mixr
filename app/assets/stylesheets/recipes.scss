@@ -33,6 +33,10 @@
   }
 }
 
+.recent-links {
+  z-index: 1001;
+}
+
 #add-image-area {
   text-align:center;
 
@@ -84,7 +88,10 @@
   cursor: pointer;
 }
 
-
+.ratebox {
+  margin: auto;
+  z-index: 10001;
+}
 
 .mod-toggle {
   cursor: pointer;
@@ -185,7 +192,6 @@ img {
   width: 100%;
   position: absolute;
   padding: 15px;
-  z-index: -1;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -278,7 +284,6 @@ img {
   width:30%;
   height:200%;
   background-color: #eee;
-  z-index: 100;
 }
  
 @media screen{

@@ -11,7 +11,7 @@
             <% r_ingr.modifications.each do |mod| %>
                 <li>
                   <div class="well suggestion-well">
-                    <div class="ratebox" data-id= <%= mod.id %> id= <%= mod.id %> data-rating=<%= mod.rating %>> </div>
+                    <div class="ratebox" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<%= mod.rating %>></div>
                     <p><%= mod.suggestion %></p>
                   </div>
 
@@ -111,7 +111,7 @@
     <% if @recently_viewed != nil and !@recently_viewed.empty? %> 
       <h4>You recently viewed:</h4>
       <% @recently_viewed.each do |viewed| %>
-        <h6><%= link_to viewed.title, viewed %></h6>
+        <h6 class="recent-links"><%= link_to viewed.title, viewed %></h6>
       <% end %>
     <% end %>
   </div>
