@@ -2,21 +2,19 @@
   <!-- Sidebar -->
   <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
-      <li class="sidebar-brand">
+      <h4 class="sidebar-brand">
         Modifications
-      </li>
+      </h4>
 
       <% @recipe.recipe_ingredients.each do |r_ingr| %>
         <span class="suggestions" id=<%= "orig-mods-" + r_ingr.id %>>
             <% r_ingr.modifications.each do |mod| %>
                 <li>
-                    <div class="ratebox" 
-                     data-id=<%= @recipe.id %> 
-                     id=<%= @recipe.id %> 
-                     data-rating=<%= @recipe.rating %>
-                     >
-                     </div>
-                  <%= mod.suggestion %>
+                  <div class="well suggestion-well">
+                    <div class="ratebox suggestion-rating" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<%= mod.rating %>></div>
+                    <p><%= mod.suggestion %></p>
+                  </div>
+
                 </li>
             <% end %>
             <span class="new-mod-form">
@@ -39,6 +37,11 @@
                     >
                   </div>
                   <%= mod.suggestion %>
+
+                  <div class="well suggestion-well">
+                    <div class="ratebox" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<%= mod.rating %>></div>
+                    <p><%= mod.suggestion %></p>
+                  </div>
                 </li>
             <% end %>
           <span class="new-mod-form">
@@ -81,15 +84,12 @@
                     </li>
                 <% end %>
               </ol>
-
           </div>
-
           <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
-
           <% if @recently_viewed != nil and !@recently_viewed.empty? %> 
             <h4>You recently viewed:</h4>
             <% @recently_viewed.each do |viewed| %>
-              <p><%= link_to viewed.title, @recently_viewed[0] %></p>
+              <h6 class="recent-links"><%= link_to viewed.title, viewed %></h6>
             <% end %>
           <% end %>
         </div>
@@ -97,12 +97,12 @@
     </div>
   </div>
   <!-- /#page-content-wrapper -->
-  <div id ="right-sidebar">
+  <div id ="right-sidebar" class="no-mobile">
     <br><br>
     <%= image_tag @recipe.image.url if @recipe.image?%>
-    <div class="ratebox" 
-         data-id=<%= @recipe.id %> 
-         id=<%= @recipe.id %> 
+    <div class="ratebox"
+         data-id=<%= @recipe.id %>
+         id=<%= @recipe.id %>
          data-rating=<%= @recipe.rating %>
          >
     </div> 
@@ -113,12 +113,13 @@
     <%= line_chart [{data: @recipe_votes_count }], min: Time.now - 5.days, max: Time.now %>
     </div>
 
-  <div>
-    <p>Want to be notified when new modifications are added to this recipe? Enter your email here.</p>
-  <div>
-    <%= text_field_tag "add-subscriber", "", id: "add-subscriber" %>
-    <%= submit_tag "Submit", class: "submit-sub", id: "r" + @recipe.id %>
-  </div>
+    <div class="well subscriber-box">
+      <div>
+        <p>Want to be notified when new modifications are added to this recipe? Enter your email here.</p>
+        <%= text_field_tag "add-subscriber", "", id: "add-subscriber" %>
+        <%= submit_tag "Submit", class: "submit-sub", id: "r" + @recipe.id %>
+      </div>
+   </div>
   </div>
 
   </div>
@@ -127,11 +128,6 @@
 </div>
 <!-- /#wrapper -->
 
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
 
 <!-- Menu Toggle Script -->
 <script>

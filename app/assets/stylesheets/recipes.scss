@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body{
+  font-family: "Open Sans Condensed";
+}
 h1 {
   margin-left: 20%;
   margin-right:20%;
@@ -25,6 +28,16 @@ h5{
   text-align: left;
 }
 
+.title-area {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#add-ingredient, #add-step {
+  color: white;
+  margin-bottom: 20px;
+}
+
 .recipe-ingredients, .steps {
   li {
     list-style-type: none;
@@ -34,6 +47,24 @@ h5{
       margin-right: 10px;
     }
   }
+}
+
+.recent-links {
+  z-index: 1001;
+}
+
+#add-image-area {
+  text-align:center;
+
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+
+.subscriber-box {
+  max-width: 80%;
+  margin-top: 20px;
 }
 
 .image{
@@ -47,6 +78,20 @@ h5{
   margin-top: 30px;
 }
 
+.suggestion-well {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.suggestions-rating{
+  position: absolute;
+
+}
+
+.new-mod-form {
+  display:none;
+}
 
 .italic {
   font-style: italic;
@@ -64,12 +109,17 @@ h5{
   cursor: pointer;
 }
 
+.ratebox {
+  margin: auto;
+  z-index: 10001;
+}
+
 .mod-toggle {
   cursor: pointer;
 }
 
 .suggestions {
-  display: none;
+  //display: none;
 }
 
 .recipe-contents {
@@ -141,7 +191,7 @@ img {
 }
 
 #sidebar-wrapper {
-  z-index: 1000;
+  z-index: 1001;
   position: fixed;
   left: 250px;
   width: 0;
@@ -205,6 +255,8 @@ img {
 }
 
 .sidebar-nav > .sidebar-brand {
+  font-family: "Open Sans Condensed";
+  font-weight: bold;
   height: 65px;
   font-size: 18px;
   line-height: 60px;
@@ -263,5 +315,15 @@ img {
    position:fixed;
    visibility: hidden;
   }
+
  }
+
+@media only screen
+and (max-width : 768px)
+{
+  .no-mobile {
+    display: none;
+  }
+}
+
 
