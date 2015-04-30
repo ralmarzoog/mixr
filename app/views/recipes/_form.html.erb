@@ -20,10 +20,11 @@
   <div class="ingredients">
     <%= f.fields_for :recipe_ingredients do |ingredient_form| %>
       <div class="field ingredients-field">
-        <%= ingredient_form.label :quantity %>
-        <%= ingredient_form.text_field :quantity %>
-        <%= ingredient_form.label :ingredient %>
+        <%= ingredient_form.label "Ingredient: " %>
         <%= ingredient_form.text_field :ingredient %>
+        <%= ingredient_form.label "Quantity: "%>
+        <%= ingredient_form.text_field :quantity %>
+
       </div>
     <% end %>
   </div>
@@ -34,7 +35,7 @@
   <div class="steps">
     <%= f.fields_for :steps do |step_form| %>
       <div class="field steps-field">
-        <%= step_form.label "#{index}" %>
+        <%= step_form.label "Step #{index}" %>
         <%= step_form.text_area :instruction %>
       </div>
       <% index += 1 %>
