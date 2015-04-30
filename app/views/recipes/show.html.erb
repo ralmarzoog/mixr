@@ -81,7 +81,7 @@
                     </li>
                 <% end %>
               </ol>
-              <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
+
           </div>
 
           <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
@@ -89,7 +89,7 @@
           <% if @recently_viewed != nil and !@recently_viewed.empty? %> 
             <h5>You recently viewed:</h5>
             <% @recently_viewed.each do |viewed| %>
-              <p><%= viewed.title %></p>
+              <p><%= link_to viewed.title, @viewed %></p>
             <% end %>
           <% end %>
         </div>
@@ -119,7 +119,6 @@
       <p><%= viewed.title %></p>
       <% end %>
     <% end %>
-  </div>
   <div>
     <p>Want to be notified when new modifications are added to this recipe? Enter your email here.</p>
   <div>
@@ -127,6 +126,9 @@
     <%= submit_tag "Submit", class: "submit-sub", id: "r" + @recipe.id %>
   </div>
   </div>
+
+  </div>
+
 
 </div>
 <!-- /#wrapper -->

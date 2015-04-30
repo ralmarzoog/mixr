@@ -4071,11 +4071,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border: 1px solid transparent;
 }
 
-.loggedin {
-  visibility: hidden;
+.loggedout {
+  visibility: visible;
 }
 
-.loggedout {
+.fb-btn {
   position: fixed;
   margin-top: 15px;
   right: 8%;
