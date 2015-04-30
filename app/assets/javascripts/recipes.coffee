@@ -71,32 +71,3 @@ jQuery ->
         alert "Error"
 
 
-fb_share = ->
-  $('#share_button').click (e) ->
-    e.preventDefault()
-    rId = $('.share-btn-span').attr('recipe-id')
-    rTitle = $('.share-btn-span').attr('recipe-title')
-    img = $('.share-btn-span').attr('image-url')
-    if img and img != 'nil'
-      hash = 
-        method: 'feed'
-        name: rTitle
-        link: ' https://fathomless-eyrie-3707.herokuapp.com' + rId
-        picture: img
-        description: 'Recipe for ' + rTitle
-        message: ''
-    else
-      hash =
-        method: 'feed'
-        name: rTitle
-        link: ' https://fathomless-eyrie-3707.herokuapp.com' + rId
-        picture: ''
-        description: 'Recipe for ' + rTitle
-        message: ''
-    FB.ui hash
-    return
-  return
-
-$(document).ready(fb_share)
-$(document).on('page:load', fb_share)
-
