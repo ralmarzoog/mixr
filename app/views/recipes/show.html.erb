@@ -32,7 +32,7 @@
       <% end %>
 
       <% @recipe.steps.each do |step| %>
-        <span class="suggestions" id=<%= "orig-mods-" + step.id %>>
+        <div class="suggestions step-suggestions" id=<%= "orig-mods-" + step.id %>>
           <h5 class="mod-subtitle">
             <% label =  step.instruction[0..25] %>
             <% label = label == step.instruction ? label : label + " ..." %>
@@ -55,7 +55,7 @@
                 <%= submit_tag 'Submit', class: "submit-mod btn btn-default"%>
               <% end %>
             </span>
-        </span>
+        </div>
       <% end %>
     </ul>
   </div>
