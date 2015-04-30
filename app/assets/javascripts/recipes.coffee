@@ -90,6 +90,7 @@ $(document).ready ->
         method: 'feed'
         name: rTitle
         link: ' https://fathomless-eyrie-3707.herokuapp.com' + rId
+        picture: ''
         description: 'Recipe for ' + rTitle
         message: ''
     FB.ui hash
