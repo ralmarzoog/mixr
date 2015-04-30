@@ -16,7 +16,7 @@
                 <li class="single-suggestion">
                     <div class="ratebox suggestion-rating" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<%= mod.rating %>></div>
                     <p><%= mod.suggestion %></p>
-                    <% if index < r_ingr.modifications.length %>
+                    <% if index < r_ingr.modifications.length - 1 %>
                       <hr class="mod-separator"></hr>
                     <% end %>
                 </li>
@@ -34,7 +34,7 @@
       <% @recipe.steps.each do |step| %>
         <span class="suggestions" id=<%= "orig-mods-" + step.id %>>
           <h5 class="mod-subtitle">
-            <% label =  step.instruction[0..30] %>
+            <% label =  step.instruction[0..25] %>
             <% label = label == step.instruction ? label : label + " ..." %>
             <%= label.upcase %>
           </h5>
@@ -43,6 +43,9 @@
                 <li class="single-suggestion">
                     <div class="ratebox" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<%= mod.rating %>></div>
                     <p><%= mod.suggestion %></p>
+                    <% if index < r_ingr.modifications.length - 1 %>
+                      <hr class="mod-separator"></hr>
+                    <% end %>
                 </li>
             <% end %>
           </div>
