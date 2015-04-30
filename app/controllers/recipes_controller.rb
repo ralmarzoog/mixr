@@ -76,12 +76,16 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if @recipe.save
         recipe_ingredient_params.each do |recipe_ingr|
-          next unless (recipe_ingr[1][:quantity] and !recipe_ingr[1][:quantity].blank?) or (recipe_ingr[1][:ingredient] and !recipe_ingr[1][:ingredient].blank?)
           quantity = recipe_ingr[1][:quantity]
+          ingr = recipe_ingr[1][:ingredient]
+
+          next unless (quantity and !quantity.blank?) or (ingr and !ingr.blank?)
+
           ingr_name = recipe_ingr[1][:ingredient].downcase
-          ingr = Ingredient.where(name: ingr_name).first
-          ingr = ingr || Ingredient.create(name: ingr_name)
-          @recipe.recipe_ingredients.create(quantity: quantity, ingredient: ingr)
+          ingredient = Ingredient.where(name: ingr_name).first
+          ingredient = ingredient || Ingredient.create(name: ingr_name)
+          @recipe.recipe_ingredients.create(quantity: quantity, 
+                                            ingredient: ingredient)
         end
 
         steps_params.each do |s|
