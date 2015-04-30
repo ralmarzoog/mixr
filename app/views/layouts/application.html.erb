@@ -50,11 +50,11 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <%=form_tag("/search", method: :get, class: "navbar-form navbar-left" ) do%>
-        <%=text_field_tag "search", nil, class:"form-control"%>
-        <%= button_tag(type: "Submit", class: "btn btn-default") do %>
-          <span class="fa fa-search"></span>
-        <% end %> 		
-      <% end%>
+          <%=text_field_tag "search", nil, class:"form-control search-bar", placeholder: "Search for recipes" %>
+          <%= button_tag(type: "Submit", class: "btn btn-default") do %>
+            <i class="fa fa-search"></i>
+          <% end %> 		
+        <% end%>
         <ul class="nav navbar-nav navbar-right navbar-static-top">
           <li class ="loggedin"><%= link_to 'Add recipe', new_recipe_path %></li>
           <li class = "loggedout"> &nbsp; </li>

@@ -70,4 +70,3 @@ jQuery ->
       error: (data) ->
         alert "Error"
 
-
