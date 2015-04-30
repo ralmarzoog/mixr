@@ -338,10 +338,6 @@ and (max-width : 768px)
   }
 }
 
-.recipe-rating {
-  z-index: 2000;
-}
-
 
 .ratebox {
   margin: auto;
@@ -356,4 +352,18 @@ and (max-width : 768px)
   text-align: center;
 }
 
+.recipe-rating {
+  z-index: 2000;
+  margin-top: 20px;
+}
+
+.rating-label {
+  text-align: center;
+}
+
+.chart-label {
+  margin-bottom: 60px;
+  text-align: center;
+  z-index: 200;
+}
 
