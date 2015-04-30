@@ -11,6 +11,13 @@ h1 {
   text-align: left;
 }
 
+.mod-subtitle {
+  text-align: center;
+  font-weight: bold;
+  font-family: "Open Sans Condensed";
+}
+
+
 h5{
   text-align: left;
 }
@@ -82,11 +89,19 @@ h5{
   margin-left: 10px;
   margin-right: 10px;
   text-align: left;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 
-.suggestions-rating{
-  position: absolute;
+.mod-separator {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-color: #ccc;
+}
 
+.suggestions-rating {
+  position: absolute;
 }
 
 .new-mod-form {
