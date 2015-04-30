@@ -39,11 +39,11 @@
             <%= label.upcase %>
           </h5>
           <div class="well suggestion-well">
-            <% step.modifications.each do |mod| %>
+            <% step.modifications.each_with_index do |mod, index| %>
                 <li class="single-suggestion">
                     <div class="ratebox" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<%= mod.rating %>></div>
                     <p><%= mod.suggestion %></p>
-                    <% if index < r_ingr.modifications.length - 1 %>
+                    <% if index < step.modifications.length - 1 %>
                       <hr class="mod-separator"></hr>
                     <% end %>
                 </li>
