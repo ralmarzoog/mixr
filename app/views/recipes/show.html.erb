@@ -9,7 +9,7 @@
       <% @recipe.recipe_ingredients.each do |r_ingr| %>
         <div class="suggestions" id=<%= "orig-mods-" + r_ingr.id %>>
           <h5 class="mod-subtitle">
-            <%= r_ingr.ingredient.name.upcase %>
+            <%= r_ingr.ingredient.name.upcase if r_ingr and r_ingr.ingredient %>
          </h5>
           <div class="well suggestion-well">
             <% r_ingr.modifications.each_with_index do |mod, index| %>
@@ -32,11 +32,13 @@
       <% end %>
 
       <% @recipe.steps.each do |step| %>
-        <div class="suggestions step-suggestions" id=<%= "orig-mods-" + step.id %>>
+        <div class="suggestions" id=<%= "orig-mods-" + step.id %>>
           <h5 class="mod-subtitle">
-            <% label =  step.instruction[0..25] %>
-            <% label = label == step.instruction ? label : label + " ..." %>
-            <%= label.upcase %>
+            <% if step.instruction %>
+              <% label =  step.instruction[0..25] %>
+              <% label = label == step.instruction ? label : label + " ..." %>
+              <%= label.upcase %>
+            <% end %>
           </h5>
           <div class="well suggestion-well">
             <% step.modifications.each_with_index do |mod, index| %>
