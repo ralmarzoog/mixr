@@ -7,18 +7,12 @@ class SearchController < ApplicationController
     
     @all_recipes.each do |recipe|
       has_term = false
-     
       title = recipe.title.downcase 
       search_terms.each do |term|
-        if title.include?(term)
-          has_term = true
-        end
+        has_term = true if title.include?(term)
       end
 
-      if has_term
-        @recipes << recipe
-      end
-      has_term = false
+      @recipes << recipe if has_term
     end
 
     render "search_results"
