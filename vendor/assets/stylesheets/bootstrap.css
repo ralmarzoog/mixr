@@ -67,6 +67,7 @@ dfn {
   font-style: italic;
 }
 h1 {
+  text-align: center;
   position: left;
   font-size: 2em;
 }

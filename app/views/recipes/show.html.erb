@@ -84,14 +84,6 @@
               <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
           </div>
 
-          <div>
-            <p>Want to be notified when new modifications are added to this recipe? Enter your email here.</p>
-            <div>
-              <%= text_field_tag "add-subscriber", "", id: "add-subscriber" %>
-              <%= submit_tag "Submit", class: "submit-sub", id: "r" + @recipe.id %>
-          </div>
-          </div>
-
           <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
 
           <% if @recently_viewed != nil and !@recently_viewed.empty? %> 
@@ -100,9 +92,6 @@
               <p><%= viewed.title %></p>
             <% end %>
           <% end %>
-
-          <%= line_chart [ { name: "Average rating", data: @recipe_avgs },
-                           { name: "Num ratings", data: @recipe_votes_count } ] %>
         </div>
       </div>
     </div>
@@ -130,6 +119,13 @@
       <p><%= viewed.title %></p>
       <% end %>
     <% end %>
+  </div>
+  <div>
+    <p>Want to be notified when new modifications are added to this recipe? Enter your email here.</p>
+  <div>
+    <%= text_field_tag "add-subscriber", "", id: "add-subscriber" %>
+    <%= submit_tag "Submit", class: "submit-sub", id: "r" + @recipe.id %>
+  </div>
   </div>
 
 </div>
