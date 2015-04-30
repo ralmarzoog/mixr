@@ -87,9 +87,9 @@
           <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
 
           <% if @recently_viewed != nil and !@recently_viewed.empty? %> 
-            <h5>You recently viewed:</h5>
+            <h4>You recently viewed:</h4>
             <% @recently_viewed.each do |viewed| %>
-              <p><%= link_to viewed.title, @viewed %></p>
+              <p><%= link_to viewed.title, @recently_viewed[0] %></p>
             <% end %>
           <% end %>
         </div>
@@ -113,12 +113,6 @@
     <%= line_chart [{data: @recipe_votes_count }], min: Time.now - 5.days, max: Time.now %>
     </div>
 
-    <% if @recently_viewed != nil and !@recently_viewed.empty? %> 
-      <h5>You recently viewed:</h5>
-      <% @recently_viewed.each do |viewed| %>
-      <p><%= viewed.title %></p>
-      <% end %>
-    <% end %>
   <div>
     <p>Want to be notified when new modifications are added to this recipe? Enter your email here.</p>
   <div>
