@@ -7,7 +7,7 @@
       </h4>
 
       <% @recipe.recipe_ingredients.each do |r_ingr| %>
-        <span class="suggestions" id=<%= "orig-mods-" + r_ingr.id %>>
+        <div class="suggestions" id=<%= "orig-mods-" + r_ingr.id %>>
           <h5 class="mod-subtitle">
             <%= r_ingr.ingredient.name.upcase %>
          </h5>
@@ -28,7 +28,7 @@
               <% end %>
             </span>
           </div>
-        </span>
+        </div>
       <% end %>
 
       <% @recipe.steps.each do |step| %>
