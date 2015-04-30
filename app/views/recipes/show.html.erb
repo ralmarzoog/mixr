@@ -121,12 +121,13 @@
          data-rating=<%= @recipe.rating %>
          >
     </div> 
+    <h4 class="rating-label">Recipe Rating<h4>
 
  
-    <h5> Number of Votes </h5>
     <div class = "chart">
-    <%= line_chart [{data: @recipe_votes_count }], min: Time.now - 5.days, max: Time.now %>
+      <%= line_chart [{data: @recipe_votes_count }], min: Time.now - 5.days, max: Time.now %>
     </div>
+    <h4 class="chart-label"> Number of Votes Per Day</h4>
 
     <div class="well subscriber-box">
       <div>
