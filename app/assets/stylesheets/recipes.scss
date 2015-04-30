@@ -23,6 +23,10 @@
   }
 }
 
+.subscriber-box {
+  margin: 20px;
+}
+
 .image{
   width:540px;
   height: auto;
@@ -34,6 +38,14 @@
   margin-top: 30px;
 }
 
+.suggestion-well {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.new-mod-form {
+  display:none;
+}
 
 .italic {
   font-style: italic;
@@ -56,7 +68,7 @@
 }
 
 .suggestions {
-  display: none;
+  //display: none;
 }
 
 .recipe-contents {

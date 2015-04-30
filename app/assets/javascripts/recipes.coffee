@@ -39,8 +39,10 @@ jQuery ->
       $(".fa-comment-o").removeClass("fa-comment-o").addClass("fa-comment")
       $(event.target).removeClass("fa-comment").addClass("fa-comment-o")
       $("#orig-mods-" + origId).show("fast")
+      $(".new-mod-form").show("fast")
     else
-      $(".suggestions").hide("fast")
+      $(".new-mod-form").hide("fast")
+      $(".suggestions").show("fast")
       $(".fa-comment-o").removeClass("fa-comment-o").addClass("fa-comment")
 
   $(".submit-mod").click (event) ->

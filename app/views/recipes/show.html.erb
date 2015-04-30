@@ -10,8 +10,11 @@
         <span class="suggestions" id=<%= "orig-mods-" + r_ingr.id %>>
             <% r_ingr.modifications.each do |mod| %>
                 <li>
-                  <div class="ratebox" data-id= <%= mod.id %> id= <%= mod.id %> data-rating=<%= mod.rating %>> </div>
-                  <%= mod.suggestion %>
+                  <div class="well suggestion-well">
+                    <div class="ratebox" data-id= <%= mod.id %> id= <%= mod.id %> data-rating=<%= mod.rating %>> </div>
+                    <p><%= mod.suggestion %></p>
+                  </div>
+
                 </li>
             <% end %>
             <span class="new-mod-form">
@@ -27,8 +30,11 @@
         <span class="suggestions" id=<%= "orig-mods-" + step.id %>>
             <% step.modifications.each do |mod| %>
                 <li>
-                  <div class="ratebox" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<%= mod.rating %>></div>
-                  <%= mod.suggestion %>
+                  <div class="well suggestion-well">
+                    <div class="ratebox" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<%= mod.rating %>></div>
+                    <p><%= mod.suggestion %></p>
+                  </div>
+
                 </li>
             <% end %>
           <span class="new-mod-form">
@@ -73,22 +79,18 @@
               </ol>
           </div>
 
-          <div>
-            <p>Want to be notified when new modifications are added to this recipe? Enter your email here.</p>
+
+          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
+         
+          <div class="well subscriber-box">
             <div>
+              <p>Want to be notified when new modifications are added to this recipe? Enter your email here.</p>
+            </div>
               <%= text_field_tag "add-subscriber", "", id: "add-subscriber" %>
               <%= submit_tag "Submit", class: "submit-sub", id: "r" + @recipe.id %>
           </div>
-          </div>
+          
 
-          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
-
-          <% if @recently_viewed != nil and !@recently_viewed.empty? %> 
-            <h5>You recently viewed:</h5>
-            <% @recently_viewed.each do |viewed| %>
-              <p><%= viewed.title %></p>
-            <% end %>
-          <% end %>
 
           <%= line_chart [ { name: "Average rating", data: @recipe_avgs },
                            { name: "Num ratings", data: @recipe_votes_count } ] %>
@@ -105,7 +107,13 @@
          id=<%= @recipe.id %> 
          data-rating=<%= @recipe.rating %>
          >
-         </div>
+   </div>
+    <% if @recently_viewed != nil and !@recently_viewed.empty? %> 
+      <h4>You recently viewed:</h4>
+      <% @recently_viewed.each do |viewed| %>
+        <h6><%= link_to viewed.title, viewed %></h6>
+      <% end %>
+    <% end %>
   </div>
 
 </div>
