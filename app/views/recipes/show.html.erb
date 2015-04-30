@@ -10,7 +10,12 @@
         <span class="suggestions" id=<%= "orig-mods-" + r_ingr.id %>>
             <% r_ingr.modifications.each do |mod| %>
                 <li>
-                  <div class="ratebox" data-id= <%= mod.id %> id= <%= mod.id %> data-rating=<%= mod.rating %>> </div>
+                    <div class="ratebox" 
+                     data-id=<%= @recipe.id %> 
+                     id=<%= @recipe.id %> 
+                     data-rating=<%= @recipe.rating %>
+                     >
+                     </div>
                   <%= mod.suggestion %>
                 </li>
             <% end %>
@@ -27,7 +32,12 @@
         <span class="suggestions" id=<%= "orig-mods-" + step.id %>>
             <% step.modifications.each do |mod| %>
                 <li>
-                  <div class="ratebox" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<%= mod.rating %>></div>
+                  <div class="ratebox" 
+                    data-id=<%= @recipe.id %> 
+                    id=<%= @recipe.id %> 
+                    data-rating=<%= @recipe.rating %>
+                    >
+                  </div>
                   <%= mod.suggestion %>
                 </li>
             <% end %>
@@ -71,18 +81,8 @@
                     </li>
                 <% end %>
               </ol>
+              <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
           </div>
-          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
-
-          <% if @recently_viewed != nil and !@recently_viewed.empty? %> 
-            <h5>You recently viewed:</h5>
-            <% @recently_viewed.each do |viewed| %>
-              <p><%= viewed.title %></p>
-            <% end %>
-          <% end %>
-
-          <%= line_chart [ { name: "Average rating", data: @recipe_avgs },
-                           { name: "Num ratings", data: @recipe_votes_count } ] %>
         </div>
       </div>
     </div>
@@ -96,7 +96,20 @@
          id=<%= @recipe.id %> 
          data-rating=<%= @recipe.rating %>
          >
-         </div>
+    </div> 
+
+ 
+    <h5> Number of Votes </h5>
+    <div class = "chart">
+    <%= line_chart [{data: @recipe_votes_count }], min: Time.now - 5.days, max: Time.now %>
+    </div>
+
+    <% if @recently_viewed != nil and !@recently_viewed.empty? %> 
+      <h5>You recently viewed:</h5>
+      <% @recently_viewed.each do |viewed| %>
+      <p><%= viewed.title %></p>
+      <% end %>
+    <% end %>
   </div>
 
 </div>
