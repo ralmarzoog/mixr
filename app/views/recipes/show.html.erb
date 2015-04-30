@@ -92,14 +92,14 @@
           
 
 
-          <%= line_chart [ { name: "Average rating", data: @recipe_avgs },
-                           { name: "Num ratings", data: @recipe_votes_count } ] %>
+          <div class="no-mobile"><%= line_chart [ { name: "Average rating", data: @recipe_avgs },
+                                { name: "Num ratings", data: @recipe_votes_count } ] %></div>
         </div>
       </div>
     </div>
   </div>
   <!-- /#page-content-wrapper -->
-  <div id ="right-sidebar">
+  <div id ="right-sidebar" class="no-mobile">
     <br><br>
     <%= image_tag @recipe.image.url if @recipe.image?%>
     <div class="ratebox" 

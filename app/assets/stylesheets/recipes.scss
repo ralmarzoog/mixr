@@ -24,7 +24,8 @@
 }
 
 .subscriber-box {
-  margin: 20px;
+  max-width: 80%;
+  margin-top: 20px;
 }
 
 .image{
@@ -62,6 +63,8 @@
 #add-step {
   cursor: pointer;
 }
+
+
 
 .mod-toggle {
   cursor: pointer;
@@ -261,5 +264,15 @@ img {
   body>div#right-sidebar{
    position:fixed;
   }
+
  }
+
+@media only screen
+and (max-width : 768px)
+{
+  .no-mobile {
+    display: none;
+  }
+}
+
 
