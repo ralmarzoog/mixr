@@ -100,7 +100,7 @@
   <div id ="right-sidebar" class="no-mobile">
     <br><br>
     <%= image_tag @recipe.image.url if @recipe.image?%>
-    <div class="ratebox"
+    <div class="ratebox recipe-rating"
          data-id=<%= @recipe.id %>
          id=<%= @recipe.id %>
          data-rating=<%= @recipe.rating %>

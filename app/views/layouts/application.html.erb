@@ -56,9 +56,9 @@
         <% end %> 		
       <% end%>
         <ul class="nav navbar-nav navbar-right navbar-static-top">
-          <li class ="loggedout"><%= link_to 'Add recipe', new_recipe_path %></li>
+          <li class ="loggedin"><%= link_to 'Add recipe', new_recipe_path %></li>
           <li class = "loggedout"> &nbsp; </li>
-          <li class="fb-btn loggedout"><fb:login-button scope="public_profile,email" data-auto-logout-link="true" onlogin="checkLoginState();"></fb:login-button></li>
+          <li class="fb-btn"><fb:login-button scope="public_profile,email" data-auto-logout-link="true" onlogin="checkLoginState();"></fb:login-button></li>
         </ul>
 
       </div><!--/.nav-collapse -->
