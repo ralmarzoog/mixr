@@ -76,7 +76,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if @recipe.save
         recipe_ingredient_params.each do |recipe_ingr|
-          next unless recipe_ingr[1][:quantity] or recipe_ingr[1][:ingredient]
+          next unless (recipe_ingr[1][:quantity] and !recipe_ingr[1][:quantity].blank?) or (recipe_ingr[1][:ingredient] and !recipe_ingr[1][:ingredient].blank?)
           quantity = recipe_ingr[1][:quantity]
           ingr_name = recipe_ingr[1][:ingredient].downcase
           ingr = Ingredient.where(name: ingr_name).first
