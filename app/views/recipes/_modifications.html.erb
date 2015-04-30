@@ -4,7 +4,7 @@
     <ul>
       <% modifications.each do |mod| %>
         <li>
-        <div class="ratebox" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<% mod.rating %>> mtype="modification"</div>
+        <div class="ratebox" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<%= mod.rating %>></div>
           <%= mod.suggestion %>
         </li>
       <% end %>
