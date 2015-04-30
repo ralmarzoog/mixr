@@ -91,7 +91,14 @@
                     </li>
                 <% end %>
               </ol>
-          </div>
+            </div>
+            <div id="share_button" class="share-btn-span" 
+              recipe-id=<%= @recipe.id %> recipe-title='<%= @recipe.title %>' 
+              image-url='<%= @recipe.image? ? URI.join(request.url, @recipe.image.url) : "nil" %>'>
+              Share 
+              <i class="fa fa-facebook-official"></i>
+            </div>
+
           <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Show/Hide Modifications Bar</a>
           <% if @recently_viewed != nil and !@recently_viewed.empty? %> 
             <h4>You recently viewed:</h4>
