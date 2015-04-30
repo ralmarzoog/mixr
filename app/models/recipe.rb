@@ -3,6 +3,7 @@ class Recipe
   include Mongoid::Paperclip
   field :title, type: String
 
+  has_many :subscribers
   has_many :recipe_ingredients, dependent: :delete
   has_many :steps, dependent: :delete
   has_many :votes, as: :rateable
@@ -22,6 +23,12 @@ class Recipe
       vote_sum / votes.count
     else
       0
+    end
+  end
+
+  def email_subscribers
+    self.subscribers.each do |sub|
+      UserMailer.new_modification(sub.email, self.title, self.id).deliver
     end
   end
 

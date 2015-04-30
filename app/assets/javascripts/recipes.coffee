@@ -55,5 +55,18 @@ jQuery ->
       error: (xhr, status, errorThrown) ->
         alert "Error " + errorThrown
 
+  $(".submit-sub").click (event) ->
+    recipe_id = $(event.target).attr('id');
+    recipe_id = recipe_id.substr(1, recipe_id.length - 1);
+    subscriber = $("#add-subscriber").val();
+    $.ajax
+      type: "POST"
+      data: { subscriber: subscriber, recipe_id: recipe_id }
+      url: "/subscribers/"
+      success: (data) ->
+        alert "Congratulations! You're subscribed!"
+      error: (data) ->
+        alert "Error"
+
 
  
