@@ -30,13 +30,6 @@
         <span class="suggestions" id=<%= "orig-mods-" + step.id %>>
             <% step.modifications.each do |mod| %>
                 <li>
-                  <div class="ratebox" 
-                    data-id=<%= @recipe.id %> 
-                    id=<%= @recipe.id %> 
-                    data-rating=<%= @recipe.rating %>
-                    >
-                  </div>
-
                   <div class="well suggestion-well">
                     <div class="ratebox" data-id=<%= mod.id %> id=<%= mod.id %> data-rating=<%= mod.rating %>></div>
                     <p><%= mod.suggestion %></p>
