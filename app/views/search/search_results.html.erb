@@ -4,7 +4,7 @@
 <% else %>
   <h3>Search Results:</h3>
   <% @recipes.each do |recipe| %>
-    <h3><%= link_to recipe.title, recipe %></h3>
+    <h4><%= link_to recipe.title, recipe %></h4>
     
   <% end %>
 <% end %>
