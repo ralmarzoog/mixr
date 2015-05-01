@@ -4,7 +4,6 @@ class VotesController < ApplicationController
   end
 
   def create
-    # When we add users, check if user has voted before and if so, update
     begin 
       to_be_rated = Modification.find(params[:id])
     rescue Mongoid::Errors::DocumentNotFound

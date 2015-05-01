@@ -1,5 +1,4 @@
 class ModificationsController < ApplicationController
-  # GET /modifications/new
   def new
     @modification = Modification.new
     redirect_to :back
@@ -21,7 +20,6 @@ class ModificationsController < ApplicationController
 
 
   private
-    # Never trust params from the internet, only allow the white list through.
     def modification_params 
       params.require(:modification).permit(:suggestion, :value)
     end

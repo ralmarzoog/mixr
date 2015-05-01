@@ -10,6 +10,7 @@
 
   <title><%= full_title(yield(:title)) %></title>
   <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
 
 
@@ -21,10 +22,21 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1459551611002948";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -37,23 +49,18 @@
         <a class="navbar-brand" href="/">MIXR</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
-	<%=form_tag(controller: "search", action:"index", method:"get") do%>
-	<%=text_field_tag "search", nil, class:"form-control"%>
-	<%=submit_tag 'Submit', class:"btn btn-default"%>
-	<% end%>
-        <!--<form action="/search" class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">
-            <span class="fa fa-search"></span>
-          </button>
-        </form>-->
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'Add recipe', new_recipe_path %></li>
-          <li><%= link_to 'About', '#' %></li>
-          <li><%= link_to 'Contact', '#' %></li>
+        <%=form_tag("/search", method: :get, class: "navbar-form navbar-left" ) do%>
+          <%=text_field_tag "search", nil, class:"form-control search-bar", placeholder: "Search for recipes" %>
+          <%= button_tag(type: "Submit", class: "btn btn-default") do %>
+            <i class="fa fa-search"></i>
+          <% end %> 		
+        <% end%>
+        <ul class="nav navbar-nav navbar-right navbar-static-top">
+          <li class ="loggedin"><%= link_to 'Add recipe', new_recipe_path %></li>
+          <li class = "loggedin"> &nbsp; </li>
+          <li class="fb-btn"><fb:login-button scope="public_profile,email" data-auto-logout-link="true" onlogin="checkLoginState();"></fb:login-button></li>
         </ul>
+
       </div><!--/.nav-collapse -->
     </div>
   </nav>
@@ -65,8 +72,11 @@
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
-      <!-- <%= debug(params) if Rails.env.development? %> -->
-  </div><!-- /.container -->
+  </div>
+
+
+    </div><!-- /.container -->
+
 
 
     <!-- Bootstrap core JavaScript
@@ -76,6 +86,7 @@
     <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+
 
 </body>
 </html>
